@@ -10,7 +10,7 @@ EventChannel('PHONE_STATE_99');
 
 class PhoneStateCallEvent{
 
-  final String stateC;
+  final String? stateC;
   PhoneStateCallEvent(this.stateC);
 
   @override
@@ -19,15 +19,15 @@ class PhoneStateCallEvent{
 
 
 
-Stream<PhoneStateCallEvent> _phoneStateCallEvent;
+Stream<PhoneStateCallEvent>? _phoneStateCallEvent;
 
-PhoneStateCallEvent _listphoneStateCallEvent(String stateD){
+PhoneStateCallEvent _listphoneStateCallEvent(String? stateD){
   return new PhoneStateCallEvent(stateD);
 }
 
 
 /// A broadcast stream of events from the phone state.
-Stream<PhoneStateCallEvent> get phoneStateCallEvent {
+Stream<PhoneStateCallEvent>? get phoneStateCallEvent {
   if (_phoneStateCallEvent == null) {
     _phoneStateCallEvent = _phoneStateCallEventChannel
         .receiveBroadcastStream()

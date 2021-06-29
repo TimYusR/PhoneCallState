@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  final String title;
+  final String? title;
 
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();
@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  StreamSubscription streamSubscription;
+  late StreamSubscription streamSubscription;
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    streamSubscription = phoneStateCallEvent.listen((PhoneStateCallEvent event) {
-      print('Call is Incoming or Connected' + event.stateC);
+    streamSubscription = phoneStateCallEvent!.listen((PhoneStateCallEvent event) {
+      print('Call is Incoming or Connected' + event.stateC!);
       //event.stateC has values "true" or "false"
     });
   }
